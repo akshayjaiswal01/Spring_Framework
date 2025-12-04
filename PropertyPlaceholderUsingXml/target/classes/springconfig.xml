@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Instead of giving hard code value we give values using data.properties file -->
+
+	<bean id="placeholder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+		<property name="Location" value="data.properties"></property>
+	</bean>
+	
+	<bean id="u1" class="com.demo.beans.MyUser">
+		<property name="uid" value="${user.userid}"></property>
+		<property name="uname" value="${user.username}"></property>
+		<property name="addr" value="${user.address}"></property>
+	</bean>
+	
+</beans>
+
+
+
