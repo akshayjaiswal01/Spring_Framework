@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Collection Injection -->
+
+	<bean id="p1" class="com.demo.beans.Product">
+		<property name="pid" value="11"></property>
+		<property name="pname" value="table"></property>
+		<property name="qty" value="50"></property>
+		<property name="price" value="2500"></property>
+	</bean>
+	
+	<bean id="p2" class="com.demo.beans.Product">
+		<property name="pid" value="12"></property>
+		<property name="pname" value="chair"></property>
+		<property name="qty" value="100"></property>
+		<property name="price" value="5000"></property>
+	</bean>
+	
+	<bean id="p3" class="com.demo.beans.Product">
+		<property name="pid" value="13"></property>
+		<property name="pname" value="sofa"></property>
+		<property name="qty" value="20"></property>
+		<property name="price" value="50000"></property>
+	</bean>
+	
+	<bean id="ord1" class="com.demo.beans.Order">
+		<property name="orderId" value="1001"></property>
+		<property name="cname" value="jay"></property>
+		<property name="plist">
+			<list>
+				<ref bean="p1" />
+				<ref bean="p2" />
+				<ref bean="p3" />
+			</list>
+		</property>
+		
+	</bean>
+	
+	<bean id="ord2" class="com.demo.beans.Order">
+		<property name="orderId" value="1002"></property>
+		<property name="cname" value="akshay"></property>
+		<property name="plist">
+			<list>
+				<ref bean="p1" />
+				<ref bean="p2" />
+			</list>
+		</property>
+		
+	</bean>
+	
+</beans>
+
+
+
