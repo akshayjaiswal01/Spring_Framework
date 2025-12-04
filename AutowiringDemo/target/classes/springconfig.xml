@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- setter injection using autowire = "byName" -->
+	<bean id="f1" class ="com.demo.beans.Faculty" autowire="byName">
+		<property name="fid" value="1001"></property>
+		<property name="fname" value="akshay"></property>
+	</bean>
+	
+	<bean id="spskill" class="com.demo.beans.Skill">
+		<property name="sid" value="001"></property>
+		<property name="sname" value="java"></property>
+		<property name="exp" value="6 years "></property>
+	</bean>
+	
+	<bean id="addr" class="com.demo.beans.Address">
+		<property name="street" value="sb.rooad"></property>
+		<property name="city" value="pune"></property>
+		<property name="pincode" value="112234"></property>
+	</bean>
+	
+	<!-- setter injection using autowire = "byType" -->
+	<bean id="f2" class ="com.demo.beans.Faculty" autowire="byType">
+		<property name="fid" value="1002"></property>
+		<property name="fname" value="jay"></property>
+	</bean>
+	
+	<!--  <bean id="spskill2" class="com.demo.beans.Skill">
+		<property name="sid" value="002"></property>
+		<property name="sname" value="python"></property>
+		<property name="exp" value="6 years "></property>
+	</bean>
+	
+	<bean id="addr2" class="com.demo.beans.Address">
+		<property name="street" value="rooad"></property>
+		<property name="city" value="pune"></property>
+		<property name="pincode" value="112256"></property>
+	</bean> -->
+	
+	<!-- constructor injection using autowire = "constructor" -->
+	<bean id="f3" class ="com.demo.beans.Faculty" autowire="constructor">
+		<constructor-arg index="0" value="1003"></constructor-arg>
+		<constructor-arg index="1" value="jayyy"></constructor-arg>
+	</bean>
+	
+	
+</beans>
+
+
+
