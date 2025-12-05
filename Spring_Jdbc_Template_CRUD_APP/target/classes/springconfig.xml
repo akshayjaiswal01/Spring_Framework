@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+ 	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+  	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config></context:annotation-config>
+<context:component-scan base-package="com.demo"></context:component-scan>
+
+<!-- 
+  PropertyPlaceholderConfigurer is used to load external properties 
+  (like database connection details) from a file. 
+  This allows you to avoid hardcoding values in XML and makes 
+  configuration flexible and easier to maintain. 
+-->
+<bean id="placeholder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+     <property name="location" value="data.properties"></property>
+  </bean>
+  
+  <!-- 
+  DriverManagerDataSource is a simple implementation of DataSource 
+  that provides database connections. 
+  The values for driverClassName, url, username, and password 
+  are injected from the properties file using placeholders. 
+  This separates configuration from code and makes it easy to change 
+  database settings without modifying the application. 
+-->
+  <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	     <property name="driverClassName" value="${jdbc.driverclass}"></property>
+	     <property name="url" value="${jdbc.url}"></property>
+	     <property name="username" value="${jdbc.uname}"></property>
+	     <property name="password" value="${jdbc.pass}"></property>
+	</bean>
+	
+	
+	<!-- 
+  JdbcTemplate is a Spring helper class that simplifies JDBC operations. 
+  It handles resource management (like opening/closing connections), 
+  reduces boilerplate code, and provides convenient methods for 
+  executing SQL queries, updates, and stored procedures. 
+  It is wired with the DataSource defined above. 
+	-->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	    <property name="dataSource" ref="ds"></property>
+	</bean> 
+	
+
+</beans>
