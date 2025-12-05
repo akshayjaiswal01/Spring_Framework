@@ -22,6 +22,16 @@ public class Product
 		this.price = price;
 		this.mfgdate = mfgdate;
 	}
+	
+	
+
+	public Product(String pname, int qty, double price, LocalDate mfgdate) {
+		super();
+		this.pname = pname;
+		this.qty = qty;
+		this.price = price;
+		this.mfgdate = mfgdate;
+	}
 
 	public int getPid() {
 		return pid;

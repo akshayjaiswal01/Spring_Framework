@@ -38,11 +38,11 @@
 	
 	
 	<!-- 
-  JdbcTemplate is a Spring helper class that simplifies JDBC operations. 
-  It handles resource management (like opening/closing connections), 
-  reduces boilerplate code, and provides convenient methods for 
-  executing SQL queries, updates, and stored procedures. 
-  It is wired with the DataSource defined above. 
+	  JdbcTemplate is a Spring helper class that simplifies JDBC operations. 
+	  It handles resource management (like opening/closing connections), 
+	  reduces boilerplate code, and provides convenient methods for 
+	  executing SQL queries, updates, and stored procedures. 
+	  It is wired with the DataSource defined above. 
 	-->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 	    <property name="dataSource" ref="ds"></property>
